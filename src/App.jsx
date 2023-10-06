@@ -9,6 +9,7 @@ import backgroundImage from './assets/banner.png'
 import fotos from './fotos.json'
 import populares from './populares.json'
 import ModalZoom from './components/ModalZoom'
+import Footer from './components/Footer'
 
 const FundoGradiente = styled.div`
     background: linear-gradient(175deg, #041833 4.16%, #04244F 48%, #154580 96.76%);
@@ -71,6 +72,7 @@ const App = () => {
                     </ConteudoGaleria>
                 </MainContainer>
             </AppContainer>
+            <Footer />
             <ModalZoom foto={fotoSelecionada} aoFavoritar={aoFavoritar} aoFechar={aoFechar} fecharModal={aoFechar} />
         </FundoGradiente>
     )
