@@ -21,7 +21,7 @@ const FotosContainer = styled.div`
     flex-wrap: wrap;
 `
 
-const Galeria = ({ fotos = [], aoFotoSelecionada, populares }) => {
+const Galeria = ({ fotos = [], aoFotoSelecionada, populares, aoFavoritar }) => {
     return (
         <>
             <Tags />
@@ -32,7 +32,8 @@ const Galeria = ({ fotos = [], aoFotoSelecionada, populares }) => {
                         {fotos.map(foto => <Imagem
                             aoZoomSolicitado={aoFotoSelecionada}
                             key={foto.id}
-                            foto={foto} />)
+                            foto={foto}
+                            aoFavoritar={aoFavoritar} />)
                         }
                     </FotosContainer>
                 </SecaoFluida>

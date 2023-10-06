@@ -45,10 +45,7 @@ const Figura = styled.figure`
 
 `
 
-const Imagem = ({ foto, expandida = false, aoZoomSolicitado }) => {
-
-    const [favoritar, setFavoritar] = useState(false)
-
+const Imagem = ({ foto, expandida = false, aoZoomSolicitado, aoFavoritar }) => {
     return (
         <Figura>
             <img src={ foto.path } alt={ foto.titulo } />
@@ -56,8 +53,8 @@ const Imagem = ({ foto, expandida = false, aoZoomSolicitado }) => {
                 <h3>{ foto.titulo }</h3>
                 <footer>
                     <p>{ foto.fonte }</p>
-                    <button onClick={ () => setFavoritar(!favoritar) }>
-                        { !favoritar ? <AiOutlineHeart size={25} color="white" /> : <AiFillHeart size={25} color="white" /> }
+                    <button onClick={ () => aoFavoritar(foto) }>
+                        { !foto.favorito ? <AiOutlineHeart size={25} color="white" /> : <AiFillHeart size={25} color="white" /> }
                     </button>
                     { !expandida && <button onClick={ () => aoZoomSolicitado(foto) }><CgExpand size={30} color="white" /></button> }
                 </footer>

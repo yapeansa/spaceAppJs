@@ -27,22 +27,23 @@ const Overlay = styled.div`
                 position: absolute;
                 top: 24px;
                 right: 24px;
+                cursor: pointer;
             }
         }
     }
 `
 
-const ModalZoom = ({ foto }) => {
+const ModalZoom = ({ foto, aoFavoritar, fecharModal }) => {
     return (
         <>
-            {foto && <Overlay>
+            {foto ? <Overlay>
                 <dialog open={!!foto}>
-                    <Imagem foto={foto} expandida={true} />
+                    <Imagem foto={foto} expandida={true} aoFavoritar={aoFavoritar} />
                     <form method="dialog">
-                        <button><AiOutlineClose color="white" size={25} /></button>
+                        <button onClick={(e) => fecharModal(e)}><AiOutlineClose color="white" size={25} /></button>
                     </form>
                 </dialog>
-            </Overlay>}
+            </Overlay> : ''}
         </>
     )
 }

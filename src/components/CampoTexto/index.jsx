@@ -28,11 +28,9 @@ const CampoTexto = () => {
 
     const [textoEstadoPadrao, setTextoEstadoPadrao] = useState('O que você procura?')
 
-    const alterarPlaceholder = () => textoEstadoPadrao !== '' ?
-        setTextoEstadoPadrao('') :
-        setTextoEstadoPadrao('O que você procura?')
+    const aoAlterarPlaceholder = () => textoEstadoPadrao !== '' ? setTextoEstadoPadrao('') : setTextoEstadoPadrao('O que você procura?')
 
-    return (<Input placeholder={textoEstadoPadrao} onFocus={alterarPlaceholder} onBlur={alterarPlaceholder} />)
+    return (<Input placeholder={textoEstadoPadrao} onFocus={aoAlterarPlaceholder} onBlur={aoAlterarPlaceholder} />)
 }
 
 export default CampoTexto
