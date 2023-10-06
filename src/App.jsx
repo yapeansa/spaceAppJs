@@ -41,16 +41,10 @@ const App = () => {
 
     const aoFavoritar = (foto) => {
         if (foto.id === fotoSelecionada?.id) {
-            setFotoSelecionada({
-                ...fotoSelecionada,
-                favorito: !fotoSelecionada.favorito
-            })
+            setFotoSelecionada({ ...fotoSelecionada, favorito: !fotoSelecionada.favorito })
         }
         setFotosDaGaleria(fotosDaGaleria.map(fotoAtual => {
-            return ({
-                ...fotoAtual,
-                favorito: fotoAtual.id === foto.id ? !foto.favorito : fotoAtual.favorito
-            })
+            return ({ ...fotoAtual, favorito: fotoAtual.id === foto.id ? !foto.favorito : fotoAtual.favorito })
         }))
     }
 
