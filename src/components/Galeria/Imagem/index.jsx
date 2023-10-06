@@ -4,11 +4,11 @@ import { CgExpand } from "react-icons/cg"
 import { useState } from "react"
 
 const Figura = styled.figure`
-    max-width: 448px;
-    flex-grow: 1;
+    min-width: 448px;
     display: flex;
     flex-direction: column;
     color: #FFF;
+    margin: 0;
     img {
         border-radius: 20px 20px 0 0;
         width: 100%;
@@ -38,31 +38,28 @@ const Figura = styled.figure`
                 background: transparent;
                 border: none;
                 cursor: pointer;
+                outline: none;
             }
         }
     }
 
 `
 
-const Imagem = ({ foto }) => {
+const Imagem = ({ foto, expandida = false, aoZoomSolicitado }) => {
 
     const [favoritar, setFavoritar] = useState(false)
 
-    const aoFavoritar = () => {
-        setFavoritar(() => !favoritar)
-    }
-
     return (
         <Figura>
-            <img src={foto.path} alt={foto.titulo} />
+            <img src={ foto.path } alt={ foto.titulo } />
             <figcaption>
-                <h3>{foto.titulo}</h3>
+                <h3>{ foto.titulo }</h3>
                 <footer>
-                    <p>{foto.fonte}</p>
-                    <button onClick={aoFavoritar}>
+                    <p>{ foto.fonte }</p>
+                    <button onClick={ () => setFavoritar(!favoritar) }>
                         { !favoritar ? <AiOutlineHeart size={25} color="white" /> : <AiFillHeart size={25} color="white" /> }
                     </button>
-                    <button><CgExpand size={30} color="white" /></button>
+                    { !expandida && <button onClick={ () => aoZoomSolicitado(foto) }><CgExpand size={30} color="white" /></button> }
                 </footer>
             </figcaption>
         </Figura>)

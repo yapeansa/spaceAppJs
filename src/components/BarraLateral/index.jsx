@@ -52,12 +52,12 @@ const BarraLateral = () => {
             <nav>
                 <ListaEstilizada>
                     { menuTexts.map(item => <ItemNavegacao
-                        iconeAtivo={item.iconeAtivo}
-                        iconeInativo={item.iconeInativo}
-                        ativo={item.ativo}
-                        key={item.texto}
+                        iconeAtivo={ item.iconeAtivo }
+                        iconeInativo={ item.iconeInativo }
+                        ativo={ item.ativo }
+                        key={ item.texto }
                     >
-                        {item.texto}
+                        { item.texto }
                     </ItemNavegacao>) }
                 </ListaEstilizada>
             </nav>

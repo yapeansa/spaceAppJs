@@ -6,6 +6,7 @@ const TagsContainer = styled.div`
     align-items: center;
     gap: 17px;
     margin-top: 56px;
+    flex-wrap: wrap;
 `
 
 const TextoTags = styled.p`
@@ -17,6 +18,7 @@ const TextoTags = styled.p`
 const TagList = styled.div`
     display: flex;
     gap: 24px;
+    flex-wrap: wrap;
 `
 
 const TagButton = styled.button`

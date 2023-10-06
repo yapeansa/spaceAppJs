@@ -1,0 +1,22 @@
+[
+    {
+        "caminho": "/images/populares/foto-1.png",
+        "id": 1
+    },
+    {
+        "caminho": "/images/populares/foto-2.png",
+        "id": 2
+    },
+    {
+        "caminho": "/images/populares/foto-3.png",
+        "id": 3
+    },
+    {
+        "caminho": "/images/populares/foto-4.png",
+        "id": 4
+    },
+    {
+        "caminho": "/images/populares/foto-5.png",
+        "id": 5
+    }
+]
