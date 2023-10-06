@@ -4,7 +4,6 @@ import Titulo from "../../Titulo"
 const PopularesContainer = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     gap: 24px;
     img {
