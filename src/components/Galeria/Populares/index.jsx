@@ -21,6 +21,10 @@ const PopularesContainer = styled.div`
         width: 208px;
         height: 56px;
         cursor: pointer;
+        transition: .3s all ease;
+        &:hover {
+            background: #C98CF1;
+        }
     }
 `
 
