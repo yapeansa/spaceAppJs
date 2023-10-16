@@ -51,11 +51,11 @@ const App = () => {
 
     useEffect(() => {
         if (pesquisa) {
-            fetch('http://localhost:8080/fotos?titulo=' + pesquisa)
+            fetch('https://raw.githubusercontent.com/yapeansa/spaceAppJs/master/src/fotos.json?titulo=' + pesquisa)
                 .then(resposta => resposta.json())
                 .then(dados => setFotosDaGaleria(dados))
         } else {
-            fetch("http://localhost:8080/fotos")
+            fetch("https://raw.githubusercontent.com/yapeansa/spaceAppJs/master/src/fotos.json")
                 .then(resposta => resposta.json())
                 .then(dados => setFotosDaGaleria(dados))
         }
@@ -67,11 +67,11 @@ const App = () => {
 
     useEffect(() => {
         if (tagId && tagId > 0) {
-            fetch('http://localhost:8080/fotos?tagId=' + tagId)
+            fetch('https://raw.githubusercontent.com/yapeansa/spaceAppJs/master/src/fotos.json?tagId=' + tagId)
                 .then(resposta => resposta.json())
                 .then(dados => setFotosDaGaleria(dados))
         } else {
-            fetch('http://localhost:8080/fotos')
+            fetch('https://raw.githubusercontent.com/yapeansa/spaceAppJs/master/src/fotos.json')
                 .then(resposta => resposta.json())
                 .then(dados => setFotosDaGaleria(dados))
         }
