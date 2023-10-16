@@ -21,10 +21,10 @@ const FotosContainer = styled.div`
     flex-wrap: wrap;
 `
 
-const Galeria = ({ fotos = [], aoFotoSelecionada, populares, aoFavoritar }) => {
+const Galeria = ({ fotos = [], aoFotoSelecionada, populares, aoFavoritar, enviaBusca }) => {
     return (
         <>
-            <Tags />
+            <Tags enviaBusca={enviaBusca} />
             <GaleriaContainer>
                 <SecaoFluida>
                     <Titulo>Navegue pela galeria</Titulo>

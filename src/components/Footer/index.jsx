@@ -35,17 +35,17 @@ const Footer = () => {
     const redes = [
         {
             nome: "Facebook",
-            caminho: "./public/images/sociais/facebook.svg",
+            caminho: "./images/sociais/facebook.svg",
             id: 1
         },
         {
             nome: "Twitter",
-            caminho: "./public/images/sociais/twitter.svg",
+            caminho: "./images/sociais/twitter.svg",
             id: 2
         },
         {
             nome: "Instagram",
-            caminho: "./public/images/sociais/instagram.svg",
+            caminho: "./images/sociais/instagram.svg",
             id: 3
         }
     ]

@@ -36,12 +36,12 @@ const TagButton = styled.button`
     }
 `
 
-const Tags = () => {
+const Tags = ({ enviaBusca }) => {
     return (
         <TagsContainer>
             <TextoTags>Busque por tags:</TextoTags>
             <TagList>
-                {tags.map(tag => <TagButton key={tag.id}>{tag.titulo}</TagButton>)}
+                {tags.map(tag => <TagButton key={tag.id} onClick={() => enviaBusca(tag.id)}>{tag.titulo}</TagButton>)}
             </TagList>
         </TagsContainer>
     )

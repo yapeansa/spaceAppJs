@@ -1,5 +1,5 @@
 import { styled } from 'styled-components'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import EstilosGlobais from './components/EstilosGlobais'
 import Header from './components/Header'
 import BarraLateral from './components/BarraLateral'
@@ -37,8 +37,45 @@ const ConteudoGaleria = styled.section`
 
 const App = () => {
 
-    const [fotosDaGaleria, setFotosDaGaleria] = useState(fotos)
+    const [fotosDaGaleria, setFotosDaGaleria] = useState([])
     const [fotoSelecionada, setFotoSelecionada] = useState(null)
+    const [texto, setTexto] = useState('O que você procura?')
+    const [pesquisa, setPesquisa] = useState('')
+    const [tagId, setTagId] = useState(0)
+
+    const aoFocar = () => texto !== '' ? setTexto('') : setTexto('O que você procura?')
+
+    const aoDigitar = (valor) => {
+        setPesquisa(valor)
+    }
+
+    useEffect(() => {
+        if (pesquisa) {
+            fetch('http://localhost:8080/fotos?titulo=' + pesquisa)
+                .then(resposta => resposta.json())
+                .then(dados => setFotosDaGaleria(dados))
+        } else {
+            fetch("http://localhost:8080/fotos")
+                .then(resposta => resposta.json())
+                .then(dados => setFotosDaGaleria(dados))
+        }
+    }, [pesquisa])
+
+    const enviaBusca = (id) => {
+        setTagId(id)
+    }
+
+    useEffect(() => {
+        if (tagId && tagId > 0) {
+            fetch('http://localhost:8080/fotos?tagId=' + tagId)
+                .then(resposta => resposta.json())
+                .then(dados => setFotosDaGaleria(dados))
+        } else {
+            fetch('http://localhost:8080/fotos')
+                .then(resposta => resposta.json())
+                .then(dados => setFotosDaGaleria(dados))
+        }
+    }, [tagId])
 
     const aoFavoritar = (foto) => {
         if (foto.id === fotoSelecionada?.id) {
@@ -58,7 +95,7 @@ const App = () => {
         <FundoGradiente>
             <EstilosGlobais />
             <AppContainer>
-                <Header />
+                <Header placeholder={texto} aoFocar={aoFocar} aoDigitar={aoDigitar} />
                 <MainContainer>
                     <BarraLateral />
                     <ConteudoGaleria>
@@ -68,6 +105,7 @@ const App = () => {
                             fotos={fotosDaGaleria}
                             populares={populares}
                             aoFavoritar={aoFavoritar}
+                            enviaBusca={enviaBusca}
                         />
                     </ConteudoGaleria>
                 </MainContainer>

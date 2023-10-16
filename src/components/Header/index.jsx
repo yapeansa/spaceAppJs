@@ -10,10 +10,10 @@ const StyledHeader = styled.header`
     }
 `
 
-const Header = () => {
+const Header = ({ placeholder, aoFocar, aoDigitar }) => {
     return (<StyledHeader>
         <img src="./images/logo.png" alt="" />
-        <CampoTexto />
+        <CampoTexto placeholder={placeholder} aoFocar={aoFocar} aoDigitar={aoDigitar} />
     </StyledHeader>)
 }
 

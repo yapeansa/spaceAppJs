@@ -1,4 +1,3 @@
-import { useState } from "react"
 import { styled } from 'styled-components'
 
 const Input = styled.input`
@@ -24,13 +23,10 @@ const Input = styled.input`
     }
 `
 
-const CampoTexto = () => {
-
-    const [textoEstadoPadrao, setTextoEstadoPadrao] = useState('O que você procura?')
-
-    const aoAlterarPlaceholder = () => textoEstadoPadrao !== '' ? setTextoEstadoPadrao('') : setTextoEstadoPadrao('O que você procura?')
-
-    return (<Input placeholder={textoEstadoPadrao} onFocus={aoAlterarPlaceholder} onBlur={aoAlterarPlaceholder} />)
+const CampoTexto = ({ placeholder, aoFocar, aoDigitar }) => {
+    return (
+        <Input placeholder={placeholder} onFocus={aoFocar} onBlur={aoFocar} onChange={(e) => aoDigitar(e.target.value)} />
+    )
 }
 
 export default CampoTexto
