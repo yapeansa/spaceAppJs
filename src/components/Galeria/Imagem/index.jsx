@@ -4,9 +4,10 @@ import { CgExpand } from "react-icons/cg"
 import { useState } from "react"
 
 const Figura = styled.figure`
-    min-width: 448px;
+    min-width: 423px;
     display: flex;
     flex-direction: column;
+    flex: 1;
     color: #FFF;
     margin: 0;
     img {
