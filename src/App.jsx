@@ -6,7 +6,6 @@ import BarraLateral from './components/BarraLateral'
 import Banner from './components/Banner'
 import Galeria from './components/Galeria'
 import backgroundImage from './assets/banner.png'
-import fotos from './fotos.json'
 import populares from './populares.json'
 import ModalZoom from './components/ModalZoom'
 import Footer from './components/Footer'
@@ -55,15 +54,15 @@ const App = () => {
 
     useEffect(() => {
         if (pesquisa && pesquisa.length >= 3) {
-            fetch(`http://localhost:8080/fotos?titulo=${pesquisa}`)
+            fetch(`https://my-json-server.typicode.com/yapeansa/spaceapp-fotos/fotos?titulo=${pesquisa}`)
                 .then(resposta => resposta.json())
                 .then(dados => setFotosDaGaleria(dados))
         } else if (tagId && tagId > 0) {
-            fetch(`http://localhost:8080/fotos?tagId=${tagId}`)
+            fetch(`https://my-json-server.typicode.com/yapeansa/spaceapp-fotos/fotos?tagId=${tagId}`)
                 .then(resposta => resposta.json())
                 .then(dados => setFotosDaGaleria(dados))
         } else {
-            fetch("http://localhost:8080/fotos")
+            fetch("https://my-json-server.typicode.com/yapeansa/spaceapp-fotos/fotos")
                 .then(resposta => resposta.json())
                 .then(dados => setFotosDaGaleria(dados))
         }
